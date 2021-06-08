@@ -1,0 +1,71 @@
+---
+:draft:
+  :boosters: 36
+  :slots:
+  - <%= 1.0 - foil_chance %>:
+      :common: 10
+    <%= foil_chance %>:
+      :common: 9
+      :foil_random:   1
+  - :uncommon: 3
+  - <%= rare_chance %>: :rare
+    <%= mythic_chance %>: :mythic
+  - :land
+:set:
+  :boosters: 30
+  :slots:
+  - <%= 1.0 - set_signed_art_chance %>: :art
+    <%= set_signed_art_chance %>: :signed_art
+  - <%= 1.0 - set_foil_land_chance %>: :land
+    <%= set_foil_land_chance %>: :foil_land
+  - 0.35:
+      :common:   5
+      :uncommon: 1
+    0.40:
+      :common:   4
+      :uncommon: 2
+    0.125:
+      :common:   3
+      :uncommon: 3
+    0.07:
+      :common:   2
+      :uncommon: 4
+    0.035:
+      :common:   1
+      :uncommon: 5
+    0.002:
+      :uncommon: 6
+<% # these should be one slot but they have the same probability %>
+  - 0.5: :special_common
+  - 0.5: :special_uncommon
+  - 0.49:
+      :common: 2
+    0.245:
+      :common:   1
+      :uncommon: 1
+    0.031:
+      :uncommon: 2
+    <%= 0.175 * rare_chance %>:
+      :common: 1
+      :rare:     1
+    <%= 0.175 * mythic_chance %>:
+      :common: 1
+      :mythic:   1
+    <%= 0.043 * rare_chance %>:
+      :uncommon: 1
+      :rare:     1
+    <%= 0.043 * mythic_chance %>:
+      :uncommon: 1
+      :mythic:   1
+    <%= 0.016 * rare_chance * rare_chance %>:
+      :rare: 2
+    <%= 2 * 0.016 * rare_chance * mythic_chance%>:
+      :rare: 1
+      :mythic: 1
+    <%= 0.016 * mythic_chance * mythic_chance %>:
+      :mythic: 2
+  - <%= rare_chance %>: :rare
+    <%= mythic_chance %>: :mythic
+  - :foil_random
+  - 0.25: :list
+    

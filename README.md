@@ -16,22 +16,31 @@ git clone https://github.com/Lisstem/whats-in-a-box.git
 ```
 cd whats-in-a-box && bundle install
 ```
-## Usage
-You can create your own booster boxes following the pattern from [booster.yaml](booster.yaml) and use
-```ruby
-require_relative 'booster_data'
 
-boxes = load_file('booster.yaml')
-puts boxes.inspect
+## Generating booster data and overviews
+First you need to compile the [booster data](booster.yaml.erb) by running
 ```
-to load the data (and print it).
-
-To create overviews you can use the (basic) [template compiler](template_compiler.rb).
-An example is given by [compile_template.rb](compile_template.rb).
-
-To create the [boxes.md](boxes.md) from the [boxes.md.erb Template](boxes.md.erb) run
+ruby compile_template booster.yaml.erb
+```
+After this you can compile the [overview](boxes.md.erb)
 ```
 ruby compile_template boxes.md.erb booster.yaml
 ```
+
+## Loading the booster data
+To load the booster data you can use the load_file() method.
+```ruby
+require_relative 'booster_data'
+
+boxes = BoosterData.load_file('booster.yaml')
+puts boxes.inspect
+```
+This loads the data (and prints it).
+
+## Creating your own boosters or overviews 
+You can create your own boosters following the pattern in the compiled booster.yaml.
+You can of course also write a template and compile it using the [template compiler](template_compiler.rb).
+The same goes for the overviews just create a template and run it with the compiler and your booster data.
+
 ## License
 [Blue Oak Model License 1.0.0](LICENSE.md)
