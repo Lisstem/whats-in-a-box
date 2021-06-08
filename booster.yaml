@@ -1,7 +1,7 @@
 ---
 :draft:
-  :booster: 36
-  :cards:
+  :boosters: 36
+  :slots:
   - 0.6666666666666667:
       :common: 10
     0.3333333333333333:
@@ -12,8 +12,8 @@
     0.13513513513513511: :mythic
   - :land
 :set:
-  :booster: 30
-  :cards:
+  :boosters: 30
+  :slots:
   - 0.95: :art
     0.05: :signed_art
   - 0.85: :land
