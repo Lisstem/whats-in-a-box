@@ -12,7 +12,7 @@ gem install bundler
 ```
 git clone https://github.com/Lisstem/whats-in-a-box.git
 ```
-4. Move into the directory and install the needed gems
+4. Move into the directory and install the required gems
 ```
 cd whats-in-a-box && bundle install
 ```
@@ -26,10 +26,10 @@ puts boxes.inspect
 ```
 to load the data (and print it).
 
-To create overviews you can use the simple [template compiler](template_compiler.rb).
+To create overviews you can use the (basic) [template compiler](template_compiler.rb).
 An example is given by [compile_template.rb](compile_template.rb).
 
-To create the [boxes.md](boxes.md) run
+To create the [boxes.md](boxes.md) from the [boxes.md.erb Template](boxes.md.erb) run
 ```
 ruby compile_template boxes.md.erb booster.yaml
 ```
