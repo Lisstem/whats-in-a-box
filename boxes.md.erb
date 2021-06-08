@@ -1,0 +1,22 @@
+﻿# What's in a box?
+Here is an overview of the average contents of a booster box or in other words:
+What you can expects if you open a large a mount of booster boxes.
+The contents of a single boxes may be different.
+
+## Contents
+| Booster type | <%= box_data.keys.map {|type| type.to_s.capitalize }.join(' | ') %> |
+| --- | <%= ' --- |' * box_data.count %>
+<% [:boosters, :common, :uncommon, :rare, :mythic, :land, :foil, :list, :art].each do |rarity| %>
+| <%= rarity.to_s.capitalize %> | <%= box_data.values.map { |type_data| self.send(rarity, type_data) }.join( ' | ') %> |
+<% end %>
+
+## Assumptions
+In set boosters is a "Head-Turning Slot" which can be either a common or an uncommon with a special treatment (e.g showcase card).
+I assume that there is a 50% chance for a common and a 50% chance for an uncommon.
+
+## References
+The odds for the specific rarities are take from the [MTG Wiki](https://mtg.fandom.com/wiki/Main_Page).
+- [Draft boosters](https://mtg.fandom.com/wiki/Draft_Booster)
+- [Foil cards](https://mtg.fandom.com/wiki/Foil_card#Rarity)
+- [Set boosters](https://mtg.fandom.com/wiki/Set_Booster#Structure)
+- [Rares and mythic rares](https://mtg.fandom.com/wiki/Mythic_rare#Odds)
